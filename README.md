@@ -1,77 +1,98 @@
 # EDA
-# Hotel-Booking-Analysis
-Have you ever wondered when the best time of year to book a hotel room is? Or the optimal length of stay in order to get the best daily rate? What if you wanted to predict whether or not a hotel was likely to receive a disproportionately high number of special requests? This hotel booking dataset can help you explore those questions! This data set contains booking information for a city hotel and a resort hotel, and includes information such as when the booking was made, length of stay, the number of adults, children, and/or babies, and the number of available parking spaces, among other things. Hotel-Booking
+# Project Summary -
+This project is related to Hotel Booking having two hotel description i.e City Hotel and Resort Hotel. In this dataset contains total rows 119390 and 32 columns.In this we divide data manipulation workflow in three category Data Collection ,Data cleaning and manipulation and EDA(Exploratory Data Analysis).As Further moved i.e Data collections first step to find different columns which is done by coding Head(), tail(), info(), describe(), columns() and some others method used for data collections, some of the columns name is updated here i.ehotel, is_canceled, lead_time, arrival_date_year, arrival_date_month, arrival_date_week_number, arrival_date_day_of_month, stays_in_weekend_nights.As we further moved we find unique value of each columns and generate a list in tabular form and also check the dataset type of each columns’ find some columns not in accurate data types which correct it later done in Data cleaning part and as well as duplicates data items must be removed as we find duplicates items equal to 87396 which is dropped from dataset later.
 
-# Dataset Specs
-Count of rows= 119390
-Count of columns= 32
-# Programming Language
-Python
-# IDE
-Google Colaboratory
-# Nomenclature
-Naming our dataframe is very crutial for any data analysis project as you have to call the dataframe time and again for every set of operation which are to be performed for the in-depth analysis.
+Before visualize any data from the data set we have to do data wrangling. For that, we are checked the null value of all the columns. After checking, when we are getting a column which has more number of null values, dropped that column by using the 'drop' method. In this way, we are dropped the 'company' column. When we are find minimal number of null values, filling thse null values with necesary values as per requirement by using .fillna()
 
-In this case, our copy of the dataframe will be called 'df' , simple and easy to recall.
+Different charts are used for data visualization so that better insights and Business objective is attained.
 
-# Data Variables Glossary
-hotel Two hotels are given: Resort Hotel City Hotel
-is_canceled 1: Canceled 0: Not canceled
-cancelation 0 as not_canceled 1 as canceled
-df_not_canceled_guests dataframe with just not_canceled bookings
-lead_time gap between booking and arrival
-arrival_date_year arrival year
-arrival_date_month arrival month
-arrival_date_week_number arrival week
-arrival_date_day_of_month arrival date
-stays_in_weekend_nights count of nights the guests booked the hotel during Sat-Sun
-stays_in_week_nights count of nights the guests booked the hotel during Mon-Fri
-total_stay_nights duration of stay including weekend nights and week nights stay
-adults count of adults
-children count of children
-babies count of babies
-meal meal type (no meal package; BB; HB; FB)
-country country of guests
-df_country_guests_top10 top10 countries with most visitors
-market_segment TA: Travel agents TO: Tour operators
-distribution_channel
-is_repeated_guest 1: Yes 0: No
-previous_cancellations count of previous bookings that were cancelled by the customer before final booking
-previous_bookings_not_canceled count of no canceled bookings
-reserved_room_type booked room category
-assigned_room_type assigned room category
-booking_changes count of changes made by the customer before final booking
-deposit_type type of deposit made by the customer
-agent travel agent id
-company booking company id
-days_in_waiting_list count of days the booking was in the waiting list before it was confirmed
-customer_type Transient Contract Group Transient-party
-adr average daily rate for the booking
-price total price spent by a guest entity
-required_car_parking_spaces count of car parking spaces alloted by the customer
-total_of_special_requests count of special requests made by the customer
-reservation_status status of reservation
-reservation_status_date date corresponding to status of reservation
-# INTRODUCTION & OBJECTIVE OF THE CHASE
-Vacations, business stay or a casual trip to a new city, hotel bookings are mandatory and each one of us desires to optimize our stay. Optimization, for someone could be booking a hotel where he/she pays less for a good deal, or maybe just getting the only luxurious suite, in a 7-star hotel during a non-peak period.
+# Project Goal
+This data set contains booking information for a city hotel and a resort hotel, and includes information such as when the booking was made, length of stay, the number of adults, children, and/or babies, and the number of available parking spaces, among other things. Purpose of our study is to find the best time to book a hotel room. The optimal length of stay in order to get the best daily rate. Study on special requests.We explore and analyze the data to discover important factors that govern the bookings.
 
-We are given a Hotel Booking dataset, which stores tabular information about the guests' booking pattern, stay duration, choice of meal and much more for a consecutive year range and we’ll be performing a profound analysis on the dataset, to dig out details and predict a few trends pertaining to the data. Firstly, I don't want to pay any surged random price for my booking rather, I will be happy to pay an optimized value for my stay. Secondly, I want my vacation to be safe, as I am accompanying my loved ones, so I would prefer a hotel with less crowd and well equipped with health and safety measures.
+# Exploratory Data Analysis:-
+In this study we have sample data about the hotel industry that is not processed for use. Unprocessed data gives inaccurate results. To process this data is called data cleaning. We have cleaned the data by handling null values, outliers and dropping unwanted columns.
 
-Our analysis, would be capable of helping prospective guests in choosing the right hotel, right stay duration and much more for their stay and moreover, would also be introspecting for hotel management in bringing out changes (if, any) in their services for the guests.
+# Data Cleaning
+## Handling Null Values
+Company Id and Agent Id: - These columns have null values of 93% and 15% respectively. Hence, these columns are dropped.
 
-Let's begin the chase!
+Country: - This has null values less than 5% thus the null values are filled with the mode value.
 
-SUMMARY OF CONCLUSIONS
-City Hotel is the most booked hotel with 62 percent not_canceled bookings.
-Resort Hotel is preferred over City Hotel by Adults and childrens.
-Resort Hotel has been preferred over City Hotel by larger group of guests or families.
-City Hotel canceled bookings is almost thrice the canceled booking of Resort Hotel. This might be due to no cancelation charges or no-deposit booking allowed by them. Year 2016 observed most number of Bookings for the Hotels cumulatively.
-Month of August saw most number of arrivals in either of the hotels. So, if you want to be accompanied by a large number of co-guests then choose August for your visit.
-Also, guests are observed to be spending more week nights than weekend nights.
-City Resort could be tagged as a "Duo/Couple-Friendly Hotel" & "Children-Friendly Hotel". Whereas, Resort Hotel could be tagged as "Babies-Friendly Hotel"
-Arrival of guests is pretty high almost 75 percent and above from the countries with code: DEU, ESP, FRA, GBR and PRT
-There are very few repeated guests in each hotels.
-For City Hotel, most of their guests stayed back for 2 or 3 days.For Resort Hotel, most of their guests stayed back for 1 or 7 days.
-The City Hotel guests made a total of 64 percentage of total special requests while The Resort Hotel guests made only 36 percent of the total.
-City Hotel allows more No Deposit Bookings in count than Resort Hotel. But, the Percentage of No Deposit Bookings over total bookings is higher for Resort Hotel.
-The price variance and standard deviation for City Hotel is lower than Resort Hotel. The prices of Resort Hotel are more than City Hotel in the months of July, August,September and June. For rest of the months, Prices of City Hotel are consistently higher than Resort Hotel.
+Children and babies: - There are only 4 null values so the null value is filled with mean
+
+## Handling Outliers
+An outlier is an extremely high or extremely low data point relative to the nearest data point and the rest of the neighboring co-existing values in a data graph or dataset we work with. We have used the Interquartile range method to handle outliers. To find the interquartile range (IQR), ​we first find the median (middle value) of the lower and upper half of the data. These values are quartile 1 (Q1) and quartile 3 (Q3). The IQR is the difference between Q3 and Q1.
+
+# Data study
+i) UNIVARIATE ANALYSIS: Univariate analysis is the simplest form of analyzing data i.e study of one variable. Its major purpose is to describe; distribution of single data, and find patterns in the data.
+
+ii) BIVARIATE ANALYSIS: Bivariate analysis between two variables. One of the variables will be dependent and the other is independent. The study is analyzed between the two variables to understand to what extent the change has occurred.
+
+iii) MULTIVARIATE ANALYSIS Multivariate data analysis is the study of relationships among the attributes, classify the collected samples into homogeneous groups, and make inferences about the underlying populations from the sample.
+
+# Data Visualization :-
+Data visualization is the practice of translating information into a visual context, such as a map or graph, to make it easier to understand and gain insights from them. The graphs used here for study are: -
+
+Box Plot.
+
+Histogram.
+
+Pie Chart.
+
+Bar Plot.
+
+Line Plot.
+
+Scatter Plot.
+
+Geo Mapping.
+
+# Business objective attained as follows:
+1.For hotel business to flourish few things which we need to consider is high revenue generation, customers satisfaction and employeee retention.
+
+2.We are able achieve the same by showing the client which are the months which are high in revenue generation by pie chart distribution
+
+3.Increasing the revenue achieved by bar chart distribution of which type room are most reserved and what are the months likely for visitors
+
+4.So for these the client can be well prepare in advance so that minimum grievances would be faced by clients in long run and would help in further enhancement of their hospitality
+
+5.Outliers like higher the visitor then adr has reduced drastically was shown in scattered plot so in off season client can engage with offices for bulk booking this will aslo help extra revenue generation
+
+6.We are are able to shoe the trend of arrivals of visitor at client locations through which client engaged visitos well advance for there entaertainment and leisure activities
+
+7.We where also able to co relate the values showing the max and min percentage between them so that the percenytage lying those numbers can be enhanced by various medium
+
+# Conclusion
+1.Maximumm guest are arriving in 2016. among of all of the years.
+
+2.City Hotel seems to be more preferred among travellers and it also generates more revenue & profit.
+
+3.Most number of bookings are made in July and August as compared rest of the months.
+
+4.Room Type A is the most preferred room type among travellers.
+
+5.Guest less styaing the hotel as hotel increase the ADR.
+
+6.Most number of bookings are made from Portugal & Great Britain.
+
+7.Most of the guest stays for 1-4 days in the hotels.
+
+8.For long staying in hotel. customers prefers the Resort Hotel and for short staying customer prefers the City hotel
+
+9.less than 5% of customers are reatined by the hotels.
+
+10.Around one-fourth of the total bookings gets cancelled. More cancellations are from City Hotel.
+
+11.City hotel has high no. of Waiting days.thus city hotel is more busy.
+
+12.In July,Auguest,September the price of city hotel is highest. and for same month the price of resort hotel is less.
+
+13.The Online-TA method is most preferble for customers.
+
+14.Transient and transient-party type of customers are coming more in hotels.
+
+15.The length of the stay decreases as ADR increases probably to reduce the cost.
+
+16.The hotels which serves the BB meal are prefer by customers.
+
+17.More no of special Request are seems to be in City hotel by customers.
